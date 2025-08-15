@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Heritage Explorer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            font-family: 'Old Standard TT', serif;
+        }
+        
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .paper-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(245, 235, 220, 0.85);
+            z-index: -1;
+        }
+        
+        header .header-content,
+        main section,
+        footer .footer-content {
+            background-color: rgba(255, 248, 240, 0.8);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <div class="paper-texture"></div>
+        
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-scroll"></i> Heritage Chronicles</h1>
+                    <p class="established">Established 2023</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#festivals"><i class="fas fa-calendar-day"></i> Festivals</a></li>
+                        <li><a href="#traditions"><i class="fas fa-hands-helping"></i> Traditions</a></li>
+                        <li><a href="#crafts"><i class="fas fa-palette"></i> Crafts</a></li>
+                        <li><a href="#stories"><i class="fas fa-book-open"></i> Stories</a></li>
+                        <li><a href="#language"><i class="fas fa-language"></i> Language</a></li>
+                        <li><a href="#contribute"><i class="fas fa-feather-alt"></i> Contribute</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button id="login-btn">Sign In</button>
+                    <button id="register-btn">Register</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Preserving Our Local Heritage</h2>
+                    <p>Discover the timeless traditions of our community</p>
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search heritage items...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="festivals" class="section">
+                <div class="section-header">
+                    <h2><span>Local Festivals</span></h2>
+                    <div class="calendar-nav">
+                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="current-month">September 2023</h3>
+                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="calendar-container">
+                </div>
+                <div class="festival-container">
+                </div>
+            </section>
+
+            <section id="language" class="section">
+                <div class="section-header">
+                    <h2><span>Traditional Language</span></h2>
+                </div>
+                <div class="language-game">
+                    <div class="phrase-card">
+                        <div class="phrase-header">
+                            <h3>Traditional Phrases</h3>
+                            <button id="play-audio" class="vintage-btn"><i class="fas fa-volume-up"></i></button>
+                        </div>
+                        <div class="phrase-content">
+                            <p id="current-phrase">Loading phrases...</p>
+                            <div class="phrase-controls">
+                                <button id="prev-phrase" class="vintage-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                                <button id="next-phrase" class="vintage-btn">Next <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audio-upload">
+                        <h3>Contribute a Recording</h3>
+                        <input type="file" id="audio-upload" accept="audio/*">
+                        <button id="upload-btn" class="vintage-btn">Upload Audio</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contribute" class="section">
+                <div class="section-header">
+                    <h2><span>Contribute to Our Archive</span></h2>
+                </div>
+                <div class="contribute-form">
+                    <form id="submission-form">
+                        <div class="form-group">
+                            <label for="contribution-type">Type of Contribution:</label>
+                            <select id="contribution-type" required>
+                                <option value="">Select...</option>
+                                <option value="festival">Festival Information</option>
+                                <option value="tradition">Tradition</option>
+                                <option value="craft">Craft</option>
+                                <option value="story">Story</option>
+                                <option value="phrase">Language Phrase</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contribution-title">Title:</label>
+                            <input type="text" id="contribution-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contribution-desc">Description:</label>
+                            <textarea id="contribution-desc" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="contribution-image">Upload Image:</label>
+                            <input type="file" id="contribution-image" accept="image/*">
+                        </div>
+                        <button type="submit" class="vintage-btn">Submit Contribution</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About the Archive</h3>
+                    <p>Dedicated to preserving the rich heritage of our community for future generations.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#festivals">Festival Calendar</a></li>
+                        <li><a href="#language">Language Guide</a></li>
+                        <li><a href="#contribute">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact the Curators</h3>
+                    <p><i class="fas fa-envelope"></i> archive@heritagechronicles.com</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Heritage Chronicles. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <div id="auth-modal" class="modal">
+            <div class="modal-content vintage-card">
+                <span class="close-modal">&times;</span>
+                <h2>Access the Archive</h2>
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label for="auth-email">Email:</label>
+                        <input type="email" id="auth-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="auth-password">Password:</label>
+                        <input type="password" id="auth-password" required>
+                    </div>
+                    <button type="submit" class="vintage-btn">Enter</button>
+                </form>
+                <div class="auth-switch">
+                    <p id="switch-auth-text">New to the archive? Register instead.</p>
+                    <button id="switch-auth-btn" class="text-btn">Switch to Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
